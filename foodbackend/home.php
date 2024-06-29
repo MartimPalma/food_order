@@ -1,16 +1,16 @@
 <?php
 
-include 'components/connect.php';
+   include 'components/connect.php';
 
-session_start();
+   session_start();
 
-if(isset($_SESSION['user_id'])){
-   $user_id = $_SESSION['user_id'];
-}else{
-   $user_id = '';
-};
+   if(isset($_SESSION['user_id'])){
+      $user_id = $_SESSION['user_id'];
+   }else{
+      $user_id = '';
+   };
 
-include 'components/add_cart.php';
+   include 'components/add_cart.php';
 
 ?>
 
@@ -34,8 +34,6 @@ include 'components/add_cart.php';
 <body>
 
 <?php include 'components/user_header.php'; ?>
-
-
 
 <section class="hero">
 
@@ -113,8 +111,6 @@ include 'components/add_cart.php';
    </div>
 
 </section>
-
-
 
 
 <section class="products">

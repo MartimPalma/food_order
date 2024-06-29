@@ -1,16 +1,16 @@
 <?php
 
-include 'components/connect.php';
+   include 'components/connect.php';
 
-session_start();
+   session_start();
 
-if(isset($_SESSION['user_id'])){
-   $user_id = $_SESSION['user_id'];
-}else{
-   $user_id = '';
-};
+   if(isset($_SESSION['user_id'])){
+      $user_id = $_SESSION['user_id'];
+   }else{
+      $user_id = '';
+   };
 
-include 'components/add_cart.php';
+   include 'components/add_cart.php';
 
 ?>
 
@@ -46,6 +46,7 @@ include 'components/add_cart.php';
          if($select_products->rowCount() > 0){
             while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){
       ?>
+      
       <form action="" method="post" class="box">
          <input type="hidden" name="pid" value="<?= $fetch_products['id']; ?>">
          <input type="hidden" name="name" value="<?= $fetch_products['name']; ?>">
@@ -60,6 +61,7 @@ include 'components/add_cart.php';
             <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
          </div>
       </form>
+
       <?php
             }
          }else{

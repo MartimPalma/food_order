@@ -1,40 +1,40 @@
 <?php
 
-include 'components/connect.php';
+   include 'components/connect.php';
 
-session_start();
+   session_start();
 
-if(isset($_SESSION['user_id'])){
-   $user_id = $_SESSION['user_id'];
-}else{
-   $user_id = '';
-   header('location:home.php');
-};
+   if(isset($_SESSION['user_id'])){
+      $user_id = $_SESSION['user_id'];
+   }else{
+      $user_id = '';
+      header('location:home.php');
+   };
 
-if(isset($_POST['delete'])){
-   $cart_id = $_POST['cart_id'];
-   $delete_cart_item = $conn->prepare("DELETE FROM `cart` WHERE id = ?");
-   $delete_cart_item->execute([$cart_id]);
-   $message[] = 'cart item deleted!';
-}
+   if(isset($_POST['delete'])){
+      $cart_id = $_POST['cart_id'];
+      $delete_cart_item = $conn->prepare("DELETE FROM `cart` WHERE id = ?");
+      $delete_cart_item->execute([$cart_id]);
+      $message[] = 'cart item deleted!';
+   }
 
-if(isset($_POST['delete_all'])){
-   $delete_cart_item = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
-   $delete_cart_item->execute([$user_id]);
-   // header('location:cart.php');
-   $message[] = 'deleted all from cart!';
-}
+   if(isset($_POST['delete_all'])){
+      $delete_cart_item = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
+      $delete_cart_item->execute([$user_id]);
+      // header('location:cart.php');
+      $message[] = 'deleted all from cart!';
+   }
 
-if(isset($_POST['update_qty'])){
-   $cart_id = $_POST['cart_id'];
-   $qty = $_POST['qty'];
-   $qty = filter_var($qty, FILTER_SANITIZE_STRING);
-   $update_qty = $conn->prepare("UPDATE `cart` SET quantity = ? WHERE id = ?");
-   $update_qty->execute([$qty, $cart_id]);
-   $message[] = 'cart quantity updated';
-}
+   if(isset($_POST['update_qty'])){
+      $cart_id = $_POST['cart_id'];
+      $qty = $_POST['qty'];
+      $qty = filter_var($qty, FILTER_SANITIZE_STRING);
+      $update_qty = $conn->prepare("UPDATE `cart` SET quantity = ? WHERE id = ?");
+      $update_qty->execute([$qty, $cart_id]);
+      $message[] = 'cart quantity updated';
+   }
 
-$grand_total = 0;
+   $grand_total = 0;
 
 ?>
 
@@ -119,24 +119,9 @@ $grand_total = 0;
 <!-- shopping cart section ends -->
 
 
-
-
-
-
-
-
-
-
 <!-- footer section starts  -->
 <?php include 'components/footer.php'; ?>
 <!-- footer section ends -->
-
-
-
-
-
-
-
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>

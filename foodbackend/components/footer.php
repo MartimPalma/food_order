@@ -28,8 +28,38 @@
 
    </section>
 
+   <div class="social-media">
+      <hr>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+   </div>
+
+
 </footer>
 
 <div class="loader">
    <img src="images/loader.gif" alt="">
 </div>
+
+<style>
+      .footer .social-media {
+      margin-top: 20px;
+      text-align: center;
+      background-color: #FED330FF;
+   }
+
+   .footer .social-media hr {
+      border: none;
+      border-top: 2px solid black;
+      margin-bottom: 10px;
+   }
+
+   .footer .social-media a {
+      margin: 20px;
+      font-size: 3em; /* Tamanho dos ícones das redes sociais */
+      color: black; /* Cor dos ícones das redes sociais */
+   }
+
+</style>
